@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>shiro首页</title>
+    <link th:href="@{/asserts/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/asserts/css/font-awesome.css}" rel="stylesheet">
+    <link th:href="@{/asserts/css/custom.css}" rel="stylesheet">
+    <link th:href="@{/asserts/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/asserts/css/style.css}" rel="stylesheet">
+</head>
+<body>
+   <h3 th:text="${testing}"></h3>
+
+   <shiro:user>
+       欢迎[<shiro:principal property="uname"/>]登录 <a th:href="@{/loginout}">退出</a>
+   </shiro:user>
+
+   <!--<div shiro:hasPermission="user:add">-->
+       <!--<a th:href="@{/add}">添加用户</a>-->
+   <!--</div>-->
+
+   <div shiro:hasRole="admin">
+       <a th:href="@{/add}">添加用户</a>
+   </div>
+
+   <!--<div shiro:hasPermission="user:update">-->
+       <!--<a th:href="@{/update}">修改用户</a>-->
+   <!--</div>-->
+
+   <div shiro:hasRole="user">
+       <a th:href="@{/update}">修改用户</a>
+   </div>
+
+   <div shiro:hasRole="shop">
+       <a th:href="@{/select}">查询用户</a>
+   </div>
+
+       <a th:href="@{/login}">用户登录</a>
+
+       <!-- 全局js -->
+   <script th:src="@{/asserts/js/jquery.min.js}"></script>
+   <script th:src="@{/asserts/js/bootstrap.min.js}"></script>
+
+   <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+   <!--统计代码，可删除-->
+
+</body>
+</html>

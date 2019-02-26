@@ -1,0 +1,73 @@
+spring:
+  profiles:
+    active: prod
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/DepartmentMapper.xml
+# 沙箱账号
+pay:
+  alipay:
+    gatewayUrl: https://openapi.alipaydev.com/gateway.do
+    appid: 2016092700606912
+    appPrivateKey: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJN6L4FUV1AUW2XVsavM1kfk9FJvI8i0ZTagPEGuU6fOrFDsYIbHE5yfD8i0hfXlRZ24E4Oq50ufloo8z4pd1Bb7UQX3+zIhgT+gTLPCFEBbYB155MB4DZ6dcRj+raRzb87QNDfJb1Jg32M0LNvTukB+lsqhPAoHbnjzzuS8cxUQy6KVyqgT+20VGAl8gWehq+GD2XQkUPsTbn5JJHKfcQ4cGLYIGGSn29SQmBQ96PQ1MJhVLHnQLYHk5fl8oIW9pFelq2SGbjWwKfm/+3BU0J5w/S7WkS/6k8OOufv2lMnE6tQFiycq88V9cKxrXUbrHD28OzjNBcqCZ6zYRB4GxjAgMBAAECggEAXFUscjyIj8VSsPkryhwi/986DthtRbz/O12ldsKEt48EyAIce1cPqd3xuGFNh32opUclh6Dd1vBT82FeuCacXd+drXK1DYUymVAcDQp9lVItj7DakbbLuLMmHof0087j+7Hi0oAEYV/h/jzNhc005fM/eL6eq8C2b1F6OzsIn6bqB6nAgQrTFB/5zqg4OPZP5O5WXGgtccGcr62hgwdxGZ/umCI4qceklLn3pJuyh6vSIvy6kkwRr8BCWI19MbBd+pZFZyr2SS/VpUW5yylw4ikoS9Gc3BZ+MYCiSzk6OeZhUXtHdW8qeqQHS8U73rlrK7ov2kXZEYorut60sbm9SQKBgQDrryCQ7n5x+smtKrDT9UKXmvfhvtpyhSnQPDQObJC+7t4NJ2hISPsr9PdJazD2noHLzCg03TTsJ3ppKhyQ4sc7n6n12WYL2kPmUePjNtvfjmuuKg2/MDdHDejsWAWM8fypw1RVcoGyhzHmlLEGKAJZsZyEtNIuz/inQDAHR/ZKXwKBgQDaj+09M2xVZFugxZrCGXubHX00E5kEo3HiymrYnfAfna9+9vnB8ZIJzh7KaDnrDY0Zxw52yYRTO7hIQT0ZrJPQWEMPHre6o7Q2XkpDkOVIpKPfQ3jeMs6PsH0quKZlpyfI30sH84BQmeLv4CfsXm2a03R2R9RWFPZG8XQ7Mg9kfQKBgQDb8na46um0IzCdW67kUAnShDv7P+qLX3yzKcwG/ghjN3ag3frzIrDMx/MTYGa0cR5+e8u18g6WqQ0TIcrA5/K40PuDRVx3iT0+r4O2Ixc03aveQL7NgwjDVdbe4hJkA90g7PpCN/eUDZljL7a5IRN4c0m3iyxvpYTPSRbJZL4TjwKBgApclm+3V2R4/IsTszGOibih3kSwxSleIlERLZ2VZ0PocuB/Dvot3LGQTw9jf5NwMgdN05a4GQjlJOhwB1iHQP64oH1ABI/ZoPqO39ByNxyJiadVCI7oM7jGMjjrRiA9m3o/c8wttCCeGw8qPlpLY8DaU4QkBaILHl3gppUD24z1AoGBANTfR/O6aMB3oJcYeV67GkE+4nGk36MaODTckXSNNnlBaLGJK3JmhbyVla2H9+W/K+g5R0b5rtrvYDtaxi9vZ851zPjTWil9lu7XSHw66zTWFCP1t0gUxyGuOwhu01m4JXOBLV+zA0EcMQ34mscAQvpHntbG2q6u6jd7hKkeqDgQ
+    alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzQJsu1poakyud7+5zdAIg5QeA7J9XC3AubU7DEfyQxHHbwSWUc5YZp20NtYMSTFK9RkhuXN4jU+fzrDzzYveLg27ahZwpeUvQRyMJCnIXoWf+3CFplSDYrNTxuRgAh5uEpCRAbtQURUTLOPw+A6QIwBsz4m6ELzicpxXI4T8TbSQlUkDRWKZAYFLtGZAYmmzZnjae/TQsF6a33krF1muaQLkdXQ+KPSXcqXI4xEsdzhYfAYMyz2FP+Urn9yZt1tC6li778bUreydIaays6t6ZvF8lyz1xPcfW+T3OyuQlVT72ArJZOZuVHpAD/B26Pjugg5Rw/dPwNhfFRZi/PmJJQIDAQAB
+    returnUrl: http://yxep7y.natappfree.cc/alipay/return
+    notifyUrl: http://yxep7y.natappfree.cc/alipay/notify
+---
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://localhost:3306/success
+    username: root
+    password: root
+    #配置ddl
+#    schema:
+#        - classpath:user_ddl.sql
+#    initialization-mode: always
+#    data:
+#        - classpath:user_dml.sql
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://192.168.1.111:3306/success
+    username: root
+    password: root
+    #指定Druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    #数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+---
